@@ -48,49 +48,49 @@ ifneq ($(filter arm%,$(UNAME_P)),)
 CCFLAGS += -D ARM
 endif
 
-ifeq (,$(shell which g++))
+ifneq (,$(shell which g++))
 CPP += g++
 else
-ifeq (,$(shell which clang))
+ifneq (,$(shell which clang))
 CPP += clang
 else
 $(error "No C++ Compiler Found")
 endif
 endif
 
-ifeq (,$(shell which gcc))
+ifneq (,$(shell which gcc))
 cc += gcc
 else
-ifeq (,$(shell which clang))
+ifneq (,$(shell which clang))
 cc += clang
 else
 $(error "No C Compiler Found")
 endif
 endif
 
-ifeq (,$(shell which mcs))
+ifneq (,$(shell which mcs))
 CS += mcs
 else
 $(error "No C# Compiler Found")
 endif
 
-ifeq (,$(shell which mono))
+ifneq (,$(shell which mono))
 CSRun += mono
 else
 $(error "No Mono Found")
 endif
 
-ifeq (,$(shell which java))
+ifneq (,$(shell which java))
 JAVA += java
 JAVARun += java
 else
 $(error "No JVM Found")
 endif
 
-ifeq (,$(shell which python))
+ifneq (,$(shell which python))
 PY += python
 else
-ifeq (,$(shell which python3))
+ifneq (,$(shell which python3))
 PY += python3
 else
 $(error "No Python Interpreter Found")
