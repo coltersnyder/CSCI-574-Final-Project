@@ -29,6 +29,46 @@ ifeq ($(PROCESSOR_ARCHITECTURE),x86)
 CCFLAGS += -D IA32
 endif
 endif
+
+ifneq (,$(shell where gcc))
+cc += gcc
+else
+ifneq (,$(shell where clang))
+cc += clang
+else
+$(error "No C Compiler Found")
+endif
+endif
+
+ifneq (,$(shell where mcs))
+CS += mcs
+else
+$(error "No C# Compiler Found")
+endif
+
+ifneq (,$(shell where mono))
+CSRun += mono
+else
+$(error "No Mono Found")
+endif
+
+ifneq (,$(shell where java))
+JAVA += java
+JAVARun += java
+else
+$(error "No JVM Found")
+endif
+
+ifneq (,$(shell where python))
+PY += python
+else
+ifneq (,$(shell where python3))
+PY += python3
+else
+$(error "No Python Interpreter Found")
+endif
+endif
+
 else
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
