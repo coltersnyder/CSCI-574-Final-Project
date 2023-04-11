@@ -1,6 +1,18 @@
 CCFLAGS = 
+CC = 
+cc = 
+
+CS = 
+
+JAVA = 
+
+JS = 
 
 PY = 
+
+RR = 
+
+RUST = 
 
 ifeq ($(OS),Windows_NT)
     CCFLAGS += -D WIN32
