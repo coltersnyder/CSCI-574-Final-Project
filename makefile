@@ -3,8 +3,10 @@ CC =
 cc = 
 
 CS = 
+CSRun = 
 
 JAVA = 
+JAVARun = 
 
 JS = 
 
@@ -44,6 +46,45 @@ else
     ifneq ($(filter arm%,$(UNAME_P)),)
         CCFLAGS += -D ARM
     endif
+
+    ifeq (,$(shell which g++))
+		CC += g++
+	else
+		ifeq (,$(shell which clang))
+			CC += clang
+		else
+			$(error "No C++ Compiler Found")
+		endif
+	endif
+
+    ifeq (,$(shell which gcc))
+		cc += gcc
+	else
+		ifeq (,$(shell which clang))
+			cc += clang
+		else
+			$(error "No C Compiler Found")
+		endif
+	endif
+
+    ifeq (,$(shell which mcs))
+		CS += mcs
+	else
+		$(error "No C# Compiler Found")
+	endif
+
+    ifeq (,$(shell which mono))
+		CSRun += mono
+	else
+		$(error "No Mono Found")
+	endif
+
+    ifeq (,$(shell which java))
+		JAVA += java
+        JAVARun += java
+	else
+		$(error "No JVM Found")
+	endif
 
 	ifeq (,$(shell which python))
 		PY += python
