@@ -1,5 +1,5 @@
 getRandom <- function() {
-    print(5)
+    print(sample(1:100, 50, replace=TRUE))
 }
 
 getRandom()
