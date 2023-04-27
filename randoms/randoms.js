@@ -1,5 +1,10 @@
-function getRandom(){
-    return Math.random()
+let listOfRandomNumbers = [];
+for (let i = 0; i < 50; i++) {
+  listOfRandomNumbers.push(Math.floor(Math.random() * 100) + 1);
 }
 
-console.log(getRandom());
+let listOfNumbers = "";
+for(var i = 0; i < listOfRandomNumbers.length; i++) {
+    listOfNumbers += i;
+}
+console.log(listOfNumbers);
