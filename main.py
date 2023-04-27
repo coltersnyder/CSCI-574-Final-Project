@@ -7,4 +7,4 @@ if __name__ == "__main__":
         rNum = f.read()
     rNum = int(rNum)
     rNum = str(bin(rNum))
-    print(rNum[2:100])
+    print(rNum[2:103])
