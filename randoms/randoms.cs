@@ -1,5 +1,6 @@
 using System;
 using System.Random;
+using System.IO;
 
 namespace RandomTest {
     class Randoms {
@@ -9,7 +10,9 @@ namespace RandomTest {
         }
 
         static void Main(String[] args){
-            Console.WriteLine(getRandom());
+            for(int i = 0; i < 50; i++) {
+                File.AppendAllText("c_sharp_random.txt", getRandom.ToString());
+            }
         }
     }
 }
